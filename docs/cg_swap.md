@@ -24,4 +24,4 @@ keyboard.keymap = [
 |-----------------------|-----------------------------------------------|
 |`KC.CG_SWAP`           |swap ctrl and gui                              |
 |`KC.CG_NORM`           |unswap ctrl and gui                            |
-|`KC.CG_TOGG`           |toggles ctrl and gui swap                       |
+|`KC.CG_TOGG`           |toggles ctrl and gui swap                      |
