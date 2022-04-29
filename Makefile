@@ -105,7 +105,7 @@ reset-board:
 ifdef MOUNTPOINT
 $(MOUNTPOINT)/kmk/.copied: $(shell find kmk/ -name "*.py" | xargs -0)
 	@echo "===> Copying KMK source folder"
-	@rsync -rh kmk $(MOUNTPOINT)/
+	@rsync -rh $(MPY_TARGET_DIR)/kmk $(MOUNTPOINT)/
 	@touch $(MOUNTPOINT)/kmk/.copied
 	@sync
 
