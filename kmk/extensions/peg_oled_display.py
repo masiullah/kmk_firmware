@@ -39,10 +39,12 @@ class Oled(Extension):
     def __init__(
         self,
         views,
+        capsword=None,
         toDisplay=OledDisplayMode.TXT,
         oWidth=128,
         oHeight=32,
         flip: bool = True,
+
     ):
         displayio.release_displays()
         self.rotation = 180 if flip else 0
@@ -51,6 +53,8 @@ class Oled(Extension):
         self._width = oWidth
         self._height = oHeight
         self._prevLayers = 0
+        self._cw_active = False
+        self._capsword = capsword
         gc.collect()
 
     def returnCurrectRenderText(self, layer, singleView):
@@ -98,10 +102,11 @@ class Oled(Extension):
                 label_direction='DWR',
             )
         )
+        print(self._capsword._cw_active)
         splash.append(
             label.Label(
                 terminalio.FONT,
-                text=self.returnCurrectRenderText(layer, self._views[3]),
+                text=self.returnCurrectRenderText(layer, self._views[3]) + str(self._capsword._cw_active),
                 color=0xFFFFFF,
                 x=95,
                 y=0,
@@ -160,6 +165,9 @@ class Oled(Extension):
     def before_matrix_scan(self, sandbox):
         if sandbox.active_layers[0] != self._prevLayers:
             self._prevLayers = sandbox.active_layers[0]
+            self.updateOLED(sandbox)
+        elif self._capsword._cw_active != self._cw_active:
+            self._cw_active = self._capsword._cw_active
             self.updateOLED(sandbox)
         return
 

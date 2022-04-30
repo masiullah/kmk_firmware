@@ -83,11 +83,13 @@ if runtime.usb_connected:
             corner_three={0: OledReactionType.LAYER, 1: ["BASE", "SFN", "NUM", "ADJ"]},
             corner_four={
                 0: OledReactionType.LAYER,
-                1: ["CW= 2", "numslock", "shifted", "leds"],
+                1: ["CW= ", "numslock", "shifted", "leds"],
             },
         ),
+        caps_word,
         toDisplay=OledDisplayMode.TXT,
         flip=False,
+
     )
 else:
     oled_ext = Oled(
