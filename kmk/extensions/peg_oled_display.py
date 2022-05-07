@@ -102,7 +102,6 @@ class Oled(Extension):
                 label_direction='DWR',
             )
         )
-        print(self._capsword._cw_active)
         splash.append(
             label.Label(
                 terminalio.FONT,

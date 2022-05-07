@@ -46,7 +46,7 @@ keyboard.modules = [
 
 
 KC_Z = KC.TD(KC.Z, KC.LALT)
-KC_ENT = KC.MT(KC.ENT, KC.RALT)
+KC_ENT = KC.MT(KC.ENT, KC.LALT, tap_time=120)
 KC_X = KC.MT(KC.X, KC.LCTL)
 KC_DOT = KC.MT(KC.DOT, KC.RCTL)
 KC_C = KC.MT(KC.C, KC.LGUI)
